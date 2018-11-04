@@ -1,0 +1,23 @@
+---
+- hosts: all
+  vars:
+     ficheros:
+       - uno
+       - dos
+       - tres
+       - cuatro
+
+     exception_uno: ""
+     exception_dos: ""
+     exception_tres: ""
+     exception_cuatro: ""
+
+
+  tasks:
+    - name: Copiando
+      copy:
+        src: "/opt/{{ item }}"
+        dest: "/opt/{{ item }}"
+        mode: 0644
+      loop: "{{ ficheros }}"
+      when: not "/opt/opt/{{ item }}" == "{{ lookup('vars', 'exception_' + item)}}"
