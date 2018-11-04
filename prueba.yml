@@ -21,3 +21,5 @@
         mode: 0644
       loop: "{{ ficheros }}"
       when: not "/opt/opt/{{ item }}" == "{{ lookup('vars', 'exception_' + item)}}"
+
+#########
