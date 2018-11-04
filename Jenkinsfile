@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('EXEC-PLAYBOOK') {
+    stage('IMPORT-GIT') {
       steps {
-        ansiblePlaybook(playbook: 'prueba.yml', colorized: true, disableHostKeyChecking: true, dynamicInventory: true, inventoryContent: '192.168.1.41')
+        git(url: 'https://github.com/fmmunoz/ansible-file.git', branch: 'master', changelog: true)
       }
     }
   }
